@@ -1,4 +1,4 @@
-# Tarefa AD04
+# Tarefa AD04
 
 Nesta tarefa vamos poñer en práctica o visto nesta unidade intentando facer un caso práctico e relativamente funcional. Imos partir da tarefa AD03 modificando a persistencia de datos. Imos pasar de utilizar SQLite a MySQL con Hibernate.
 
