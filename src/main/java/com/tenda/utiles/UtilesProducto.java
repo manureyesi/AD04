@@ -348,6 +348,13 @@ public class UtilesProducto {
 
             if (producto != null) {
                 if (UtilesTenda.comprobarBorrado(sc)) {
+                    
+                    //Borrar Stock por tendas
+                    for (ProductoStockEntity productoStockEntity: ProductoStockRepositorio.buscarProductos(session, producto)) {
+                        //Eliminar referencia
+                        ProductoStockRepositorio.eliminar(session, productoStockEntity);
+                    }
+                    
                    ProductosRepositorio.eliminar(session, producto);
                 }
 

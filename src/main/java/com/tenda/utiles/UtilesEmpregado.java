@@ -50,8 +50,15 @@ public class UtilesEmpregado {
                             horasEmpregadoPK,
                             Integer.valueOf(horasEmpregado));
                     
-                    HorasEmpregadoRepositorio.insertarDatos(session, horasEmpregadoEntity);
-
+                    //Comprobar si existe Horas en tenda par actualizar
+                    if (HorasEmpregadoRepositorio.buscarPorEmpregadoTenda(session, empregadoEntity, tenda) == null) {
+                        //Crear
+                        HorasEmpregadoRepositorio.insertarDatos(session, horasEmpregadoEntity);
+                    } else {
+                        //Actualizar
+                        HorasEmpregadoRepositorio.actualizar(session, horasEmpregadoEntity);
+                    }
+                    
                 } catch (NumberFormatException e) {
                     System.out.println("Formato Hora incorrecto");
                 }
@@ -148,12 +155,17 @@ public class UtilesEmpregado {
         System.out.print("Email Empregado: ");
         String email = sc.nextLine();
 
-        EmpregadoEntity empregadoVO = EmpregadoRepositorio.buscarEmpregadoPorEmail(session, email);
+        EmpregadoEntity empregadoEntity = EmpregadoRepositorio.buscarEmpregadoPorEmail(session, email);
 
-        if (empregadoVO != null) {
+        if (empregadoEntity != null) {
 
             if (UtilesTenda.comprobarBorrado(sc)) {
-                EmpregadoRepositorio.eliminar(session, empregadoVO);
+                //Eliminar referencias de horas
+                for (HorasEmpregadoEntity horasEmpregadoEntity: HorasEmpregadoRepositorio.buscarPorEmpregado(session, empregadoEntity)) {
+                    //Eliminar horas empregado
+                    HorasEmpregadoRepositorio.eliminar(session, horasEmpregadoEntity);
+                }
+                EmpregadoRepositorio.eliminar(session, empregadoEntity);
                 System.out.println("Empregado eliminado.");
             } else {
                 System.out.println("O empregado non existe");

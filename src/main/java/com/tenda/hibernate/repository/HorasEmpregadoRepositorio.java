@@ -31,6 +31,23 @@ public class HorasEmpregadoRepositorio {
         transaction.commit();
         
     }
+    /**
+     * Actualizar horas
+     * @param session
+     * @param horasEmpregadoEntity 
+     */
+    public static void actualizar (final Session session, final HorasEmpregadoEntity horasEmpregadoEntity) {
+    
+        //Transacción
+        Transaction transaction = session.beginTransaction();
+        
+        //Gardar tenda
+        session.update(horasEmpregadoEntity);
+        
+        //Commit
+        transaction.commit();
+        
+    }
     
     /**
      * Buscar por empregado e tenda
