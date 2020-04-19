@@ -34,8 +34,7 @@ public class TendaEntity implements Serializable {
     public TendaEntity() {
     }
 
-    public TendaEntity(int id, String nome, ProvinciaEntity provincia, String cidade) {
-        this.id = id;
+    public TendaEntity(String nome, ProvinciaEntity provincia, String cidade) {
         this.nome = nome;
         this.provincia = provincia;
         this.cidade = cidade;

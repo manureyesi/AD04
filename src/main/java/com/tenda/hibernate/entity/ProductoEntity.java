@@ -30,6 +30,10 @@ public class ProductoEntity implements Serializable {
     public ProductoEntity() {
     }
 
+    public ProductoEntity(String nome) {
+        this.nome = nome;
+    }
+
     public ProductoEntity(int id, String nome, String descripcion, Double prezo) {
         this.id = id;
         this.nome = nome;

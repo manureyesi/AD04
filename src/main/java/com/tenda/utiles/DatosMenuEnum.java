@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.tenda.utiles;
 
 /**
@@ -25,12 +20,9 @@ public enum DatosMenuEnum {
     ENGADIR_CLIENTE(12, "Engadir cliente"),
     MOSTRAR_CLIENTES(13, "Mostrar os clientes"),
     ELIMINAR_CLIENTE(14, "Eliminar cliente"),
-    ANADIR_EMPREGADO_TENDA(15, "Anadir empregado a tenda"),
-    VER_EMPREGADOS(16, "Ver lista Empregados"),
-    ELIMINAR_EMPREADO(17, "Eliminar empregado"),
-    ELIMINAR_EMPREADO_TENDA(18, "Eliminar empregado dunha Tenda"),
-    LER_TITULARES_PERIODICO(19, "Ler titulares do periódico"),
-    SAIR(20, "Sair");
+    XERRAR_INFORME(15, "Xerrar informe stock"),
+    LER_TITULARES_PERIODICO(16, "Ler titulares do periódico"),
+    SAIR(17, "Sair");
     
     private final Integer idMenu;
     private final String descripcion;

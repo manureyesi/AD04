@@ -2,8 +2,6 @@ package com.tenda.hibernate;
 
 import com.tenda.exception.ADException;
 import com.tenda.hibernate.entity.ClienteEntity;
-import com.tenda.hibernate.entity.EmpregadoEntity;
-import com.tenda.hibernate.entity.HorasEmpregadoEntity;
 import com.tenda.hibernate.entity.ProductoEntity;
 import com.tenda.hibernate.entity.ProductoStockEntity;
 import com.tenda.hibernate.entity.ProvinciaEntity;
@@ -72,9 +70,7 @@ public class HibernateUtil {
                 conf.addAnnotatedClass(ProductoEntity.class);
                 conf.addAnnotatedClass(TendaEntity.class);
                 conf.addAnnotatedClass(ClienteEntity.class);
-                conf.addAnnotatedClass(EmpregadoEntity.class);
                 conf.addAnnotatedClass(ProductoStockEntity.class);
-                conf.addAnnotatedClass(HorasEmpregadoEntity.class);
                 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
                 sessionFactory = conf.buildSessionFactory(serviceRegistry);
