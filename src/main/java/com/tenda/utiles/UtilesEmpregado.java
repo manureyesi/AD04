@@ -200,8 +200,10 @@ public class UtilesEmpregado {
             if (empregado != null) {
                 if (HorasEmpregadoRepositorio.buscarPorEmpregadoTenda(session, empregado, tenda) != null) {
                     if (UtilesTenda.comprobarBorrado(sc)) {
-                        HorasEmpregadoPK horasEmpregado = new HorasEmpregadoPK(empregado);
-                        HorasEmpregadoRepositorio.eliminar(session, new HorasEmpregadoEntity(horasEmpregado));
+                        HorasEmpregadoEntity horasEmpregadoEntity =
+                                HorasEmpregadoRepositorio.buscarPorEmpregadoTenda(session, empregado, tenda);
+                        //Eliminar Horas Empregado
+                        HorasEmpregadoRepositorio.eliminar(session, horasEmpregadoEntity);
                         System.out.println("Empregado eliminado.");
                     } else {
                         System.out.println("O empregado non existe");

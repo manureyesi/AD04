@@ -62,7 +62,7 @@ public class HorasEmpregadoRepositorio {
         q1.setParameter("empregado", empregadoEntity);
         q1.setParameter("tenda", tendaEntity);
         
-        return (HorasEmpregadoEntity) q1.getResultList();
+        return (HorasEmpregadoEntity) q1.uniqueResult();
         
     }
     
@@ -83,6 +83,22 @@ public class HorasEmpregadoRepositorio {
     }
     
     /**
+     * Buscar por Tenda
+     * @param session
+     * @param tendaEntity
+     * @return 
+     */
+    public static List<HorasEmpregadoEntity> buscarPorTenda (final Session session, final TendaEntity tendaEntity) {
+        
+        //Facemos unha consulta
+        Query q1 = session.createQuery("SELECT t FROM HorasEmpregadoEntity t WHERE t.horasEmpregadoPK.tenda = :tenda", HorasEmpregadoEntity.class);
+        q1.setParameter("tenda", tendaEntity);
+        
+        return q1.list();
+        
+    }
+    
+    /**
      * Eliminar
      * @param session
      * @param horasEmpregadoEntity 
@@ -93,7 +109,7 @@ public class HorasEmpregadoRepositorio {
         Transaction transaction = session.beginTransaction();
         
         //Gardar tenda
-        session.save(horasEmpregadoEntity);
+        session.delete(horasEmpregadoEntity);
         
         //Commit
         transaction.commit();

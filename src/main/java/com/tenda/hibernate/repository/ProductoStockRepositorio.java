@@ -82,6 +82,15 @@ public class ProductoStockRepositorio {
     
     }
     
+    public static List<ProductoStockEntity> buscarTodosLosProductos (final Session session) {
+    
+        //Facemos unha consulta
+        Query q1 = session.createQuery("SELECT t FROM ProductoStockEntity t WHERE 1 = 1", ProductoStockEntity.class);
+        
+        return q1.list();
+    
+    }
+    
     /**
      * Actualizar datos
      * @param session

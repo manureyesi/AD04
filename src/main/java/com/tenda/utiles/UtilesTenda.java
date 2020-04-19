@@ -1,7 +1,11 @@
 package com.tenda.utiles;
 
+import com.tenda.hibernate.entity.HorasEmpregadoEntity;
+import com.tenda.hibernate.entity.ProductoStockEntity;
 import com.tenda.hibernate.entity.ProvinciaEntity;
 import com.tenda.hibernate.entity.TendaEntity;
+import com.tenda.hibernate.repository.HorasEmpregadoRepositorio;
+import com.tenda.hibernate.repository.ProductoStockRepositorio;
 import com.tenda.hibernate.repository.ProvinciasRepositorio;
 import com.tenda.hibernate.repository.TendasRepositorio;
 import java.util.Scanner;
@@ -95,6 +99,14 @@ public class UtilesTenda {
 
         if (tenda != null) {
             if (comprobarBorrado(sc)) {
+                //Eliminar Referencias Stock
+                for (ProductoStockEntity productoStockEntity: ProductoStockRepositorio.buscarProductosPorTenda(session, tenda)) {
+                    ProductoStockRepositorio.eliminar(session, productoStockEntity);
+                }
+                //Eliminar Horas Empleado
+                for (HorasEmpregadoEntity horasEmpregadoEntity: HorasEmpregadoRepositorio.buscarPorTenda(session, tenda)) {
+                    HorasEmpregadoRepositorio.eliminar(session, horasEmpregadoEntity);
+                }
                 TendasRepositorio.eliminar(session, tenda);
             }
         } else {

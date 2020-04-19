@@ -1,7 +1,7 @@
 package com.tenda.utiles;
 
-import com.tenda.hibernate.entity.ProductoEntity;
-import com.tenda.hibernate.repository.ProductosRepositorio;
+import com.tenda.hibernate.entity.ProductoStockEntity;
+import com.tenda.hibernate.repository.ProductoStockRepositorio;
 import com.tenda.json.JsonUtiles;
 import java.util.List;
 import java.util.Scanner;
@@ -29,8 +29,8 @@ public class UtilesInforme {
             StringBuilder nombreArchivo = new StringBuilder(nombreArchivoStr);
             nombreArchivo.append(Constantes.JSON);
             
-            List<ProductoEntity> listaProductos =
-                    ProductosRepositorio.listarProductos(session);
+            List<ProductoStockEntity> listaProductos =
+                    ProductoStockRepositorio.buscarTodosLosProductos(session);
             
             //Guardar Json
             JsonUtiles.guardarDatosEnArchivo(listaProductos, nombreArchivo.toString());

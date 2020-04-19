@@ -23,7 +23,7 @@ import javax.persistence.Table;
 public class TendaEntity implements Serializable {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private int id;
     private String nome;
     @ManyToOne
