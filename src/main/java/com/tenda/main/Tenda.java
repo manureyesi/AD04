@@ -8,6 +8,8 @@ import com.tenda.json.pojo.DatosDriver;
 import com.tenda.utiles.DatosMenuEnum;
 import com.tenda.utiles.MenuUtiles;
 import com.tenda.utiles.UtilesCliente;
+import com.tenda.utiles.UtilesEmpregado;
+import com.tenda.utiles.UtilesInforme;
 import com.tenda.utiles.UtilesProducto;
 import com.tenda.utiles.UtilesProvinciasJson;
 import com.tenda.utiles.UtilesTenda;
@@ -167,6 +169,46 @@ public class Tenda {
                             
                             //Eliminar cliente
                             UtilesCliente.eliminar(sc, session);
+                            pararProgramaAtaEnter();
+                            
+                            break;
+                            
+                        case ANADIR_EMPREGADO_TENDA:
+                            
+                            //engadir empregado a tenda
+                            UtilesEmpregado.anadirEmpregadoTenda(sc, session);
+                            pararProgramaAtaEnter();
+                            
+                            break;
+                            
+                        case VER_EMPREGADOS:
+                            
+                            //Ver empregados
+                            UtilesEmpregado.verEmpregado(sc, session);
+                            pararProgramaAtaEnter();
+                            
+                            break;
+                            
+                        case ELIMINAR_EMPREADO:
+                            
+                            //Eliminar empregados
+                            UtilesEmpregado.eliminarEmpregado(sc, session);
+                            pararProgramaAtaEnter();
+                            
+                            break;
+                            
+                        case ELIMINAR_EMPREADO_TENDA:
+                            
+                            //Eliminar empregado tenda
+                            UtilesEmpregado.eliminarEmpregadoTenda(sc, session);
+                            pararProgramaAtaEnter();
+                            
+                            break;
+                            
+                        case XERRAR_INFORME:
+                            
+                            //Generar informe
+                            UtilesInforme.crearInforme(sc, session);
                             pararProgramaAtaEnter();
                             
                             break;

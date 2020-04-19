@@ -3,7 +3,9 @@ package com.tenda.json;
 import com.google.gson.Gson;
 import com.tenda.exception.ADException;
 import com.tenda.json.pojo.DatosDriver;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -43,6 +45,33 @@ public class JsonUtiles {
         }
         
         return datosDiver;
+    }
+    
+    /**
+     * Gardar datos en archivos
+     * @param object
+     * @param nombreArchivo 
+     */
+    public static void guardarDatosEnArchivo (final Object object, final String nombreArchivo) {
+        
+        Gson gson = new Gson();
+        String datosProgramaJson = gson.toJson(object);  
+
+        try {
+        
+            File arquivoGuardar = new File(nombreArchivo);
+
+            FileOutputStream fileOut = new FileOutputStream(arquivoGuardar);
+            DataOutputStream fluxoDatos = new DataOutputStream(fileOut);
+
+            fluxoDatos.writeBytes(datosProgramaJson);
+            
+            fluxoDatos.close();
+        
+        } catch (IOException e) {
+            System.err.println("Error al guardar archivo.");
+        }
+        
     }
     
 }

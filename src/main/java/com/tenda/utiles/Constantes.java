@@ -10,4 +10,6 @@ public class Constantes {
     
     public static final String BARRA = "/";
     
+    public static final String JSON = ".json";
+    
 }

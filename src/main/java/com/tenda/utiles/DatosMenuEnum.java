@@ -20,9 +20,13 @@ public enum DatosMenuEnum {
     ENGADIR_CLIENTE(12, "Engadir cliente"),
     MOSTRAR_CLIENTES(13, "Mostrar os clientes"),
     ELIMINAR_CLIENTE(14, "Eliminar cliente"),
-    XERRAR_INFORME(15, "Xerrar informe stock"),
-    LER_TITULARES_PERIODICO(16, "Ler titulares do periódico"),
-    SAIR(17, "Sair");
+    ANADIR_EMPREGADO_TENDA(15, "Anadir empregado a tenda"),
+    VER_EMPREGADOS(16, "Ver lista Empregados"),
+    ELIMINAR_EMPREADO(17, "Eliminar empregado"),
+    ELIMINAR_EMPREADO_TENDA(18, "Eliminar empregado dunha Tenda"),
+    XERRAR_INFORME(19, "Xerrar informe stock"),
+    LER_TITULARES_PERIODICO(20, "Ler titulares do periódico"),
+    SAIR(21, "Sair");
     
     private final Integer idMenu;
     private final String descripcion;
