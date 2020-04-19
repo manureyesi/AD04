@@ -119,7 +119,7 @@ public class UtilesEmpregado {
 
             System.out.println("[");
 
-            for (HorasEmpregadoEntity horasAux : empregadoAux.getListaHoras()) {
+            for (HorasEmpregadoEntity horasAux : HorasEmpregadoRepositorio.buscarPorEmpregado(session, empregadoAux)) {
 
                 System.out.print("  Horas Semanais: ");
                 System.out.println(horasAux.getHoras());

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -26,8 +27,6 @@ public class EmpregadoEntity implements Serializable {
     private String apelidos;
     @Column(unique=true)
     private String email;
-    @ManyToMany(cascade = {CascadeType.ALL},mappedBy="idEmpregado")
-    private List<HorasEmpregadoEntity> listaHoras;
 
     public EmpregadoEntity() {
     }
@@ -36,13 +35,6 @@ public class EmpregadoEntity implements Serializable {
         this.nome = nome;
         this.apelidos = apelidos;
         this.email = email;
-    }
-
-    public EmpregadoEntity(String nome, String apelidos, String email, List<HorasEmpregadoEntity> listaHoras) {
-        this.nome = nome;
-        this.apelidos = apelidos;
-        this.email = email;
-        this.listaHoras = listaHoras;
     }
 
     public int getId() {
@@ -73,12 +65,4 @@ public class EmpregadoEntity implements Serializable {
         this.email = email;
     }
 
-    public List<HorasEmpregadoEntity> getListaHoras() {
-        return listaHoras;
-    }
-
-    public void setListaHoras(List<HorasEmpregadoEntity> listaHoras) {
-        this.listaHoras = listaHoras;
-    }
-    
 }

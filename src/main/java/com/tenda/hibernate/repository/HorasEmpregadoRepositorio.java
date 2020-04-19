@@ -3,6 +3,7 @@ package com.tenda.hibernate.repository;
 import com.tenda.hibernate.entity.EmpregadoEntity;
 import com.tenda.hibernate.entity.HorasEmpregadoEntity;
 import com.tenda.hibernate.entity.TendaEntity;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -45,6 +46,22 @@ public class HorasEmpregadoRepositorio {
         q1.setParameter("tenda", tendaEntity);
         
         return (HorasEmpregadoEntity) q1.getResultList();
+        
+    }
+    
+    /**
+     * Buscar HOras de un empregado
+     * @param session
+     * @param empregadoEntity
+     * @return 
+     */
+    public static List<HorasEmpregadoEntity> buscarPorEmpregado (final Session session, final EmpregadoEntity empregadoEntity) {
+        
+        //Facemos unha consulta
+        Query q1 = session.createQuery("SELECT t FROM HorasEmpregadoEntity t WHERE t.horasEmpregadoPK.empregado = :empregado", HorasEmpregadoEntity.class);
+        q1.setParameter("empregado", empregadoEntity);
+        
+        return q1.list();
         
     }
     
